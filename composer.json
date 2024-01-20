@@ -1,0 +1,18 @@
+{
+    "name": "deepaktiwari/php-cmds",
+    "description": "Simple PHP command for generating files following the MVC architecture, similar to Laravel's Artisan command. Easily create models, controllers, and views as per your needs",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Deepaktiwari\\PhpCmds\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Deepak Tiwari"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
