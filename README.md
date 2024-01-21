@@ -29,4 +29,4 @@ You're now ready to use your PHP commands. Here's an example:
 php Your-Command-Name -d=app -c=ControllerName -m=ModelName -v=ControllerName/ActionName
 ```
 
-## Note: For the view file, you can specify the folder and file name according to your needs. If you use capital letters in the view's name, they will be converted to lowercase with dashes.
+# Note: For the view file, you can specify the folder and file name according to your needs. If you use capital letters in the view's name, they will be converted to lowercase with dashes.
