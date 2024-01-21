@@ -1,12 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-# Including auto load function for classess
-$crwrkdir = getcwd();
-include $crwrkdir.'vendor/deepaktiwari/php-cmds/src/cmdautold.php';
-
-#Execute only from Command-line-interface
-if (php_sapi_name() !== 'cli') {
-    HlprCls::errorInCmd("This script can only be run from the command line.");
+#Include class
+include 'cmdautold.php';
+try {
+    $fileCrt = getcwd()."/".($argv[1] ?? 'framework');
+    HlprCls::createFile($fileCrt, "#!/usr/bin/env php\n<?php\ninclude 'vendor/deepaktiwari/php-cmds/src/cmdautold.php';\n#Execute only from Command-line-interface\nif (php_sapi_name() !== 'cli') {\n    HlprCls::errorInCmd('This script can only be run from the command line.');\n}\nHndlCmd::excCmd(\$argv);");
+} catch (\Throwable $th) {
+    HlprCls::errorInCmd("Unable to genrate your cmd!");
 }
-HndlCmd::excCmd($argv);
