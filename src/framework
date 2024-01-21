@@ -1,6 +1,10 @@
 #!/usr/bin/env php
 <?php
-include './src/cmdautold.php';
+
+# Including auto load function for classess
+$crwrkdir = getcwd();
+include $crwrkdir.'vendor/deepaktiwari/php-cmds/src/cmdautold.php';
+
 #Execute only from Command-line-interface
 if (php_sapi_name() !== 'cli') {
     HlprCls::errorInCmd("This script can only be run from the command line.");
