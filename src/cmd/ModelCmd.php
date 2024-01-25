@@ -32,16 +32,16 @@ class ModelCmd{
     # Create controller File
     private function createModel($modelNm, $appDr){
         $appDirPath = getcwd()."/".$appDr;
-        HlprCls::checkDirectory($appDirPath."/model/", "Model Folder does not exist! Create it? (Y/N): ");
+        HlprCls::checkDirectory($appDirPath."/models/", "models Folder does not exist! Create it? (Y/N): ");
 
-        $modelFllNm = $appDirPath."/model/".$modelNm.".php";
+        $modelFllNm = $appDirPath."/models/".$modelNm.".php";
         
         if(!file_exists($modelFllNm)){
-            HlprCls::createFile($modelFllNm, "<?php\nclass $modelNm extends MyAppModel{\n    public function index(\$param = ''){\n\n    }\n}");
+            HlprCls::createFile($modelFllNm, "<?php\nclass $modelNm extends MyAppModel{\n    const DB_TBL = '';\n    const DB_TBL_PREFIX = '';\n    public function __construct(\$userid = 0){\n\n    }\n}");
             HlprCls::cmdRunnStrt($modelNm." created successfully!", "\033[33m");
         }else{
             if(strtolower(trim(readline("Override existing model? (Y/N): "))) == "y"){
-                HlprCls::createFile($modelFllNm, "<?php\nclass $modelNm extends MyAppModel{\n    public function index(\$param = ''){\n\n    }\n}");
+                HlprCls::createFile($modelFllNm, "<?php\nclass $modelNm extends MyAppModel{\n    const DB_TBL = '';\n    const DB_TBL_PREFIX = '';\n    public function __construct(\$userid = 0){\n\n    }\n}");
                 HlprCls::cmdRunnStrt($modelNm." overided!", "\033[33m");
             }
         }
